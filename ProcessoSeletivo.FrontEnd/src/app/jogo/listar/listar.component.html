@@ -1,0 +1,37 @@
+<div class="container main-container">
+
+    <h1>Lista de Jogos</h1>
+
+    <p>
+        <a class="btn btn-info" [routerLink]="['/jogos/adicionar-novo']">Cadastrar Novo Jogo</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Jogo está emprestado?</th>
+                <th style="text-align: right;">Ações</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let jogo of jogos">
+            <td>
+                {{ jogo.nome }}
+            </td>
+            <td>
+                {{ jogo.amigoId ? 'Sim' : 'Não'}}
+            </td>
+            <td class="text-right">
+                <a *ngIf="jogo.amigoId" class="btn btn-primary" (click)="visualizarAmigo(jogo.amigoId, jogo.nome)" style="cursor: pointer;">
+                    <span class="fa fa-search"></span>
+                </a>&nbsp;
+                <a class="btn btn-warning" [routerLink]="['/jogos/editar',jogo.id]">
+                    <span class="fa fa-pencil-alt"></span>
+                </a>&nbsp;
+                <a class="btn btn-danger" (click)="excluir(jogo.id)" style="cursor: pointer;">
+                    <span class="fa fa-trash"></span>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
