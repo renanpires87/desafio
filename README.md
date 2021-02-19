@@ -2,6 +2,30 @@
 
 Projeto feito para **processo seletivo**
 
+
+- [Iniciando aplicação com Docker](#Iniciando-aplicação-com-Docker)
+    - [Subindo as imagens](#Subindo-as-imagens)
+- [Iniciando aplicação com VS, VS Code e SQL LocalDB](#Iniciando-aplicação-com-VS,-VS-Code-e-SQL-LocalDB)
+    - [Projeto Back-end](#Projeto-Back-end)
+    - [Projeto Front-end](#Projeto-Front-end)
+    - [Dependências](#Dependências)
+- [Uso da aplicação](#Uso-da-aplicação)
+
+
+# Iniciando aplicação com Docker
+
+## Subindo as imagens
+
+ 1. **Certifique-se de ter instalado em sua máquina o Docker.**
+ 2. **Abra seu command (bash, powershell, etc...) de preferência.**
+ 3. **Navegue até a pasta docker do projeto (../desafio/docker).**
+ 4. **Rode o comando: docker-compose up**
+ 5. **Aguarde até que ele suba as 3 imagens. (SQL, API, Front).**
+ 6. **Acesse em sua máquina pelo browser: localhost**
+
+
+# Iniciando aplicação com VS, VS Code e SQL LocalDB
+
 ## Projeto Back-end
 
 Acesse a solução do projeto pelo **Visual Studio**. Clique com o botão direito do mouse na solução e clique em **Restore Nuget Packages**. Isso fará com que todas as dependências sejam instaladas.
@@ -29,7 +53,8 @@ Certifique-se de ter instalado em sua máquina as seguintes aplicações:
  3. Angular 9+
  4. SDK .Core 3.1
 
-## USO
+
+# USO
 Para usar a aplicação. Registre um usuário no botão que se encontra do lado direito superior.
 Examplo de registro de usuário:
 
