@@ -1,6 +1,6 @@
 # Desafio
 
-Projeto feito para **processo seletivo*
+Projeto feito para **processo seletivo**
 
 ## Projeto Back-end
 
