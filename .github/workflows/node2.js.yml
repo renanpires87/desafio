@@ -31,5 +31,5 @@ jobs:
       working-directory: ${{ env.working-directory }}
     - run: npm run build --prod
       working-directory: ${{ env.working-directory }}
-    - run: npm test
+    - run: npm test --browsers ChromeHeadless
       working-directory: ${{ env.working-directory }}
