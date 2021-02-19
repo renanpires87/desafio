@@ -1,5 +1,6 @@
 using AutoMapper;
 using DevIO.Api.Configuration;
+using DevIO.Api.Data;
 using DevIO.Api.Extensions;
 using DevIO.Data.Context;
 using Microsoft.AspNetCore.Builder;
@@ -62,6 +63,18 @@ namespace DevIO.Api
             app.UseMvcConfiguration();
 
             app.UseSwaggerConfig(provider);
+
+            // this will do the initial DB population
+            InitializeDatabase(app);
+        }
+
+        private void InitializeDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.Migrate();
+                scope.ServiceProvider.GetRequiredService<MeuDbContext>().Database.Migrate();
+    }
         }
     }
 }

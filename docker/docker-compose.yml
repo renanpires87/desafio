@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+
+  sql-server:
+    image: desafio-renan-pires-voltolini-sql
+    container_name: desafio-sql
+    build:
+      context: ../docker/sql
+      dockerfile: ./Dockerfile
+    environment:
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "MeuDB@123"
+      ACCEPT_EULA: "Y"
+
+  web-api:
+    image: desafio-renan-pires-voltolini-web-api
+    container_name: desafio-web-api
+    build:
+      context: ../ProcessoSeletivo.API
+      dockerfile: ./Dockerfile
+    ports:
+      - "5001:5001"
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIROMENT=Production
+      - ASPNETCORE_URLS=http://*:5000
+    depends_on: 
+      - sql-server
+
+  spa:
+    image: desafio-renan-pires-voltolini-spa
+    container_name: desafio-spa
+    build:
+      context: ../ProcessoSeletivo.FrontEnd
+      dockerfile: ./Dockerfile
+    ports:
+      - "80:80"
+    depends_on: 
+      - sql-server
+      - web-api

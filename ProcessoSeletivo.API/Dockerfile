@@ -8,7 +8,5 @@ RUN dotnet publish src/DevIO.Api/DevIO.Api.csproj -c Release -o /app/publish
 ### Estágio 2 - Subir a aplicação através dos binários ###
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 COPY --from=dotnet-builder /app/publish .
 ENTRYPOINT ["dotnet", "DevIO.Api.dll"]

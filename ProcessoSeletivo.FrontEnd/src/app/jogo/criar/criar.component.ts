@@ -20,7 +20,7 @@ export class CriarComponent extends FormBaseComponent implements OnInit {
 
   errors: any[] = [];
   jogoForm: FormGroup;
-  jogo: Jogo = new Jogo();
+  jogo: Jogo;
   amigos: Amigo[] = [];
 
   formResult: string = '';
@@ -43,7 +43,7 @@ export class CriarComponent extends FormBaseComponent implements OnInit {
 
     super.configurarMensagensValidacaoBase(this.validationMessages);
 
-    this.jogo = this.route.snapshot.data['jogo'];
+    this.jogo = this.route.snapshot.data['jogo'] ? this.route.snapshot.data['jogo'] : new Jogo();
   }
 
   ngOnInit() {

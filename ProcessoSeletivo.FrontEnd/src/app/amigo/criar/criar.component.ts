@@ -22,7 +22,7 @@ export class CriarComponent extends FormBaseComponent implements OnInit {
 
   errors: any[] = [];
   amigoForm: FormGroup;
-  amigo: Amigo = new Amigo();
+  amigo: Amigo;
 
   MASKS = utilsBr.MASKS;
   formResult: string = '';
@@ -47,7 +47,7 @@ export class CriarComponent extends FormBaseComponent implements OnInit {
 
     super.configurarMensagensValidacaoBase(this.validationMessages);
 
-    this.amigo = this.route.snapshot.data['amigo'];
+    this.amigo = this.route.snapshot.data['amigo'] ? this.route.snapshot.data['amigo'] : new Amigo();
   }
 
   ngOnInit() {
