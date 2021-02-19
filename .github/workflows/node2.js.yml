@@ -31,5 +31,5 @@ jobs:
       working-directory: ${{ env.working-directory }}
     - run: npm run build --prod
       working-directory: ${{ env.working-directory }}
-    - run: npm test --browsers ChromeHeadless
+    - run: ng test --sourceMap=false --browsers=ChromeHeadless --watch=false
       working-directory: ${{ env.working-directory }}
